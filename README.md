@@ -4,7 +4,7 @@ This repository contains exercises and assignments for GEOG 592.
 
 ## Student information
 
-Name: lane erwin
+Name: Lane Erwin
 
 ONYEN: cheyney
 
