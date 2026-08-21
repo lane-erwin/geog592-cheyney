@@ -4,8 +4,8 @@ This repository contains exercises and assignments for GEOG 592.
 
 ## Student information
 
-Name:
+Name: Lane Erwin
 
-ONYEN:
+ONYEN: cheyney
 
-GitHub username:
+GitHub username: lane-erwin
