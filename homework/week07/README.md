@@ -7,3 +7,5 @@ I have demographics data that contains demographics of the people that live in e
 I have flood exposure data that contains data on groups of people and buildings that are exposed to 30cm floods in a 10 year flood period, 50 year flood period, and 100 year flood period. 
 
 I also have a dataset showing the rural populations for each regency in Indonesia. 
+
+There is also a dataset showing evacuability times for the different regencies of Indonesia and I think this would be interesting to layer with flood exposure and the different demographics
