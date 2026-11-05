@@ -1,9 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[1]:
-
-
 import pandas as pd
 import geopandas as gpd
 import matplotlib.pyplot as plt
@@ -445,8 +439,6 @@ with PdfPages("NC_Kudzu_Atlas.pdf") as pdf:
     for county in nc_counties["NAME"]:
         county_figure(county, pdf)
 
-
-# In[10]:
 
 
 get_ipython().run_line_magic('pip', 'install nbconvert')
