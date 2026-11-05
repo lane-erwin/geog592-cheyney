@@ -132,7 +132,7 @@ kudzu= kudzu.to_crs(6543)
 print(len(kudzu))
 
 
-# In[100]:
+# In[6]:
 
 
 ax = nc_counties.plot(
@@ -151,7 +151,7 @@ ax.set_axis_off()
 plt.show()
 
 
-# In[6]:
+# In[7]:
 
 
 kudzu_join = gpd.sjoin(
@@ -178,7 +178,7 @@ nc_counties[
 ).head(10)
 
 
-# In[7]:
+# In[8]:
 
 
 def county_map(county, ax):
@@ -204,14 +204,14 @@ def county_map(county, ax):
     ax.set_axis_off()
 
 
-# In[104]:
+# In[9]:
 
 
 import inspect
 print(inspect.getsource(locator_map))
 
 
-# In[8]:
+# In[ ]:
 
 
 def locator_map(county, ax):
@@ -223,7 +223,7 @@ def locator_map(county, ax):
     print("axis off:", not ax.axison, "| xlim:", ax.get_xlim())
 
 
-# In[9]:
+# In[ ]:
 
 
 fig, ax = plt.subplots(figsize=(10, 5))
@@ -232,7 +232,7 @@ plt.show()
 print(nc_counties.shape, nc_counties.crs, nc_counties.total_bounds)
 
 
-# In[12]:
+# In[ ]:
 
 
 def locator_map(county, ax):
@@ -247,7 +247,7 @@ locator_map("Durham", axes[1])
 plt.show()
 
 
-# In[13]:
+# In[ ]:
 
 
 fig, axes = plt.subplots(
@@ -263,7 +263,7 @@ locator_map("Durham", axes[1])
 plt.show()
 
 
-# In[14]:
+# In[ ]:
 
 
 def county_info(county, ax):
@@ -310,7 +310,7 @@ def county_info(county, ax):
     ax.set_axis_off()
 
 
-# In[19]:
+# In[ ]:
 
 
 fig, axes = plt.subplots(
@@ -326,7 +326,7 @@ plt.tight_layout()
 plt.show()
 
 
-# In[17]:
+# In[ ]:
 
 
 fig, axes = plt.subplots(1, 2, figsize=(12, 6))
@@ -337,7 +337,7 @@ locator_map("Durham", axes[1])
 plt.show()
 
 
-# In[26]:
+# In[ ]:
 
 
 county = "Durham"
@@ -428,13 +428,13 @@ def county_figure(county, pdf):
 #     plt.close(fig)
 
 
-# In[27]:
+# In[ ]:
 
 
 from matplotlib.backends.backend_pdf import PdfPages 
 
 
-# In[28]:
+# In[ ]:
 
 
 nc_counties = nc_counties.sort_values(
@@ -444,4 +444,10 @@ nc_counties = nc_counties.sort_values(
 with PdfPages("NC_Kudzu_Atlas.pdf") as pdf:
     for county in nc_counties["NAME"]:
         county_figure(county, pdf)
+
+
+# In[10]:
+
+
+get_ipython().run_line_magic('pip', 'install nbconvert')
 
