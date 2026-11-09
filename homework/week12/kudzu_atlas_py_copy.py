@@ -35,8 +35,8 @@ url_state = "cb_2024_us_state_500k.zip" # state level
 ## Code for county level data 
 
 counties = gpd.read_file(url_0+url_county)
-nc_counties = counties.loc[counties["STATEFP"] == statefp].to_crs(6543).copy()
-#nc_counties.plot(edgecolor="black", facecolor="white")
+state_counties = counties.loc[counties["STATEFP"] == statefp].copy()
+#state_counties.plot(edgecolor="black", facecolor="white")
 
 
 # In[3]:
@@ -149,7 +149,7 @@ print(len(kudzu))
 # In[6]:
 
 
-ax = nc_counties.plot(
+ax = state_counties.plot(
     edgecolor="black",
     facecolor="white",
     figsize=(10, 10)
@@ -170,21 +170,21 @@ plt.show()
 
 kudzu_join = gpd.sjoin(
     kudzu,
-    nc_counties[["NAME", "geometry"]],
+    state_counties[["NAME", "geometry"]],
     how="inner",
     predicate="within"
 )
 
 kudzu_counts = kudzu_join.groupby("NAME").size()
 
-nc_counties["Kudzu_Count"] = (
-    nc_counties["NAME"]
+state_counties["Kudzu_Count"] = (
+    state_counties["NAME"]
     .map(kudzu_counts)
     .fillna(0)
     .astype(int)
 )
 
-nc_counties[
+state_counties[
     ["NAME", "Kudzu_Count"]
 ].sort_values(
     "Kudzu_Count",
@@ -196,7 +196,7 @@ nc_counties[
 
 
 def county_map(county, ax):
-    selected = nc_counties[nc_counties["NAME"] == county]
+    selected = state_counties[state_counties["NAME"] == county]
 
     selected.plot(
         ax=ax,
@@ -229,17 +229,17 @@ def county_map(county, ax):
 
 
 fig, ax = plt.subplots(figsize=(10, 5))
-nc_counties.plot(ax=ax, edgecolor="gray", facecolor="white")
+state_counties.plot(ax=ax, edgecolor="gray", facecolor="white")
 plt.show()
-print(nc_counties.shape, nc_counties.crs, nc_counties.total_bounds)
+print(state_counties.shape, state_counties.crs, state_counties.total_bounds)
 
 
 # In[ ]:
 
 
 def locator_map(county, ax):
-    selected = nc_counties[nc_counties["NAME"] == county]
-    nc_counties.plot(ax=ax, edgecolor="gray", facecolor="white")
+    selected = state_counties[state_counties["NAME"] == county]
+    state_counties.plot(ax=ax, edgecolor="gray", facecolor="white")
     selected.plot(ax=ax, edgecolor="black", facecolor="crimson", zorder=3)
     ax.set_axis_off()
 
@@ -259,8 +259,8 @@ plt.show()
 
 def county_info(county, ax):
 
-    selected = nc_counties[
-        nc_counties["NAME"] == county
+    selected = state_counties[
+        state_counties["NAME"] == county
     ]
 
     count = selected["Kudzu_Count"].iloc[0]
@@ -432,7 +432,7 @@ output_file = f"{statename.replace(' ', '_')}_Kudzu_Atlas.pdf"
 
 
 with PdfPages(output_file) as pdf:
-    for county in nc_counties["NAME"]:
+    for county in state_counties["NAME"]:
         county_figure(county, pdf)
 
 print(f"Atlas created: {output_file}")
