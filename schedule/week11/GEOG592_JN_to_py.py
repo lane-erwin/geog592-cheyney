@@ -5,10 +5,24 @@ import geopandas as gpd
 import matplotlib.pyplot as plt
 from matplotlib.patches import Polygon, Ellipse
 from matplotlib.backends.backend_pdf import PdfPages 
+import argparse
 
+parser = argparse.ArgumentParser(
+        description = "A program that makes an Atlas"
+    )
+parser.add_argument("statefp", default="20", help="name of the state to make a page for; NC is STATEFP 37")
+print("creating the statefp variable")
+parser.add_argument("statename", help = "The name of the state that is assigne")
+print("creating the name variable")
+parser.add_argument(
+        "--color",
+        help = "This is the color of the state polygon."
+    )
 
-
-statefp="20"
+args = parser.parse_args()
+statefp = args.statefp
+statename = args.statename
+face_color = args.color
 
 # getting the US census data
 print("Downloading data from US census")
