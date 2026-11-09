@@ -1,4 +1,5 @@
 import argparse
+#argparse lets you put a description of ur code. also lets you put defaults. also help
 
 def say_hello(name, times):
     for i in range(times):

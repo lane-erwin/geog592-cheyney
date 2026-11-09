@@ -24,6 +24,7 @@ statefp = args.statefp
 statename = args.statename
 face_color = args.color
 
+#statefp="20"
 # getting the US census data
 print("Downloading data from US census")
 url_0 = "https://www2.census.gov/geo/tiger/GENZ2024/shp/" # url for census tiger data 

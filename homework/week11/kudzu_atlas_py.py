@@ -5,6 +5,7 @@ import requests
 import time
 
 
+
 # In[2]:
 
 
@@ -429,7 +430,7 @@ from matplotlib.backends.backend_pdf import PdfPages
 
 
 # In[ ]:
-
+print("I am making a pdf ")
 
 nc_counties = nc_counties.sort_values(
     "NAME"
@@ -439,7 +440,7 @@ with PdfPages("NC_Kudzu_Atlas.pdf") as pdf:
     for county in nc_counties["NAME"]:
         county_figure(county, pdf)
 
-
+print("DONE")
 
 #get_ipython().run_line_magic('pip', 'install nbconvert')
 
