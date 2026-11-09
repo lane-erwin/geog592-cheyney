@@ -1,3 +1,4 @@
+print("importing libraries")
 import pandas as pd
 import geopandas as gpd
 import matplotlib.pyplot as plt
@@ -25,7 +26,7 @@ face_color = args.color
 
 # In[2]:
 
-
+print("Downloading data from the US census")
 url_0 = "https://www2.census.gov/geo/tiger/GENZ2024/shp/" # url for census tiger data 
 url_county = "cb_2024_us_county_500k.zip" # county level
 url_state = "cb_2024_us_state_500k.zip" # state level 
@@ -420,7 +421,7 @@ def county_figure(county, pdf):
 
 # In[ ]:
 
-
+print("I am making a pdf ")
 from matplotlib.backends.backend_pdf import PdfPages 
 
 
