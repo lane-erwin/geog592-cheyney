@@ -35,7 +35,7 @@ url_state = "cb_2024_us_state_500k.zip" # state level
 ## Code for county level data 
 
 counties = gpd.read_file(url_0+url_county)
-state_counties = counties.loc[counties["STATEFP"] == statefp].copy()
+state_counties = counties.loc[counties["STATEFP"] == statefp].to_crs(6543).copy()
 #state_counties.plot(edgecolor="black", facecolor="white")
 
 
