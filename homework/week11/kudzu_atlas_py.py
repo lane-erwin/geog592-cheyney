@@ -201,8 +201,8 @@ def county_map(county, ax):
 # In[9]:
 
 
-import inspect
-print(inspect.getsource(locator_map))
+#import inspect
+#print(inspect.getsource(locator_map))
 
 
 # In[ ]:
@@ -441,5 +441,5 @@ with PdfPages("NC_Kudzu_Atlas.pdf") as pdf:
 
 
 
-get_ipython().run_line_magic('pip', 'install nbconvert')
+#get_ipython().run_line_magic('pip', 'install nbconvert')
 
